@@ -15,3 +15,28 @@ document.getElementById("btn-description").addEventListener("click", () => {
   descriptionSection.classList.remove("hidden");
   descriptionSection.classList.add("block");
 });
+
+function getDescription() {
+  const descriptionContent = document.getElementById("description-input");
+  const descriptionText = descriptionContent.value;
+  const descriptionContainer = document.getElementById("description-container");
+  descriptionContainer.innerText = descriptionText;
+  descriptionContainer.appendChild(header);
+}
+
+const inputField = document.getElementById("description-input");
+const loader = document.getElementById("loader");
+
+let typingTimer;
+const typingDelay = 2000;
+
+inputField.addEventListener("input", () => {
+  clearTimeout(typingTimer);
+  loader.classList.add("hidden");
+  if (inputField.value) {
+    loader.classList.remove("hidden");
+    typingTimer = setTimeout(() => {
+      loader.classList.add("hidden");
+    }, typingDelay);
+  }
+});

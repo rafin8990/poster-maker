@@ -28,7 +28,6 @@ function handleFileUpload(file) {
   if (file) {
     const reader = new FileReader();
 
-    // Check file type and size
     if (/\.(jpe?g|png|gif|svg)$/i.test(file.name) && file.size <= 800 * 400) {
       reader.onload = function () {
         imagePreview.src = reader.result;
