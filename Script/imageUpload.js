@@ -2,7 +2,6 @@ const dropZone = document.getElementById("dropZone");
 const imageInput = document.getElementById("imageInput");
 const imagePreviewContainer = document.getElementById("imagePreviewContainer");
 const imagePreview = document.getElementById("imagePreview");
-const uploadBtn = document.getElementById("uploadBtn");
 
 dropZone.addEventListener("dragover", (event) => {
   event.preventDefault();
@@ -34,7 +33,6 @@ function handleFileUpload(file) {
       reader.onload = function () {
         imagePreview.src = reader.result;
         imagePreviewContainer.classList.remove("hidden");
-        uploadBtn.disabled = false;
       };
       reader.readAsDataURL(file);
     } else {
@@ -44,3 +42,21 @@ function handleFileUpload(file) {
     }
   }
 }
+
+document.getElementById("image-close").addEventListener("click", () => {
+  const imageSection = document.getElementById("image");
+  const imageButton = document.getElementById("btn-image");
+  imageSection.classList.remove("block");
+  imageSection.classList.add("hidden");
+  imageButton.classList.remove("hidden");
+  imageButton.classList.add("block");
+});
+
+document.getElementById("btn-image").addEventListener("click", () => {
+  const imageSection = document.getElementById("image");
+  const imageButton = document.getElementById("btn-image");
+  imageButton.classList.remove("block");
+  imageButton.classList.add("hidden");
+  imageSection.classList.remove("hidden");
+  imageSection.classList.add("block");
+});

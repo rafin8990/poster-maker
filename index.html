@@ -24,12 +24,15 @@
           </div>
         </div>
         <!-- heading part added -->
-        <div class="border border-gray-300 relative p-5 mx-5 my-10 rounded-lg">
+        <div
+          id="heading"
+          class="hidden border border-gray-300 relative p-5 mx-5 my-10 rounded-lg"
+        >
           <div class="flex justify-between absolute -top-4 left-4">
             <p class="bg-gray-300 text-center w-[75px] rounded-lg">Heading</p>
           </div>
           <div class="flex justify-between absolute -top-4 -right-4">
-            <button>
+            <button id="heading-close">
               <p
                 class="text-red-500 bg-white p-2 text-center font-semibold w-[30px] h-[30px] rounded-full"
               >
@@ -38,30 +41,32 @@
             </button>
           </div>
           <input
+            oninput="getHeading()"
+            id="heading-input"
             placeholder="Heading"
             class="w-full p-5 mt-2 rounded-xl"
             type="text"
           />
           <div class="flex justify-between">
             <div class="mt-2">
-              <button class="bg-gray-300 px-5 py-2 rounded-l-lg">
+              <button id="btn-left" class="bg-gray-300 px-5 py-2 rounded-l-lg">
                 <i class="fa-solid fa-circle-user"></i> Left
               </button>
-              <button class="bg-gray-300 px-5 py-2">
+              <button id="btn-center" class="bg-gray-300 px-5 py-2">
                 <i class="fa-solid fa-align-center"></i> Center
               </button>
-              <button class="bg-gray-300 px-5 py-2 rounded-r-lg">
+              <button id="btn-right" class="bg-gray-300 px-5 py-2 rounded-r-lg">
                 <i class="fa-solid fa-align-right"></i> Right
               </button>
             </div>
             <div class="mt-2">
-              <button class="bg-gray-300 px-5 py-2 rounded-l-lg">
+              <button id="btn-blue" class="bg-gray-300 px-5 py-2 rounded-l-lg">
                 <i class="fa-solid fa-circle-user"></i> Blue
               </button>
-              <button class="bg-gray-300 px-5 py-2">
+              <button id="btn-black" class="bg-gray-300 px-5 py-2">
                 <i class="fa-solid fa-align-center"></i> Black
               </button>
-              <button class="bg-gray-300 px-5 py-2 rounded-r-lg">
+              <button id="btn-green" class="bg-gray-300 px-5 py-2 rounded-r-lg">
                 <i class="fa-solid fa-align-right"></i> Green
               </button>
             </div>
@@ -69,14 +74,17 @@
         </div>
 
         <!-- poster image  -->
-        <div class="border border-gray-300 relative p-5 mx-5 my-10 rounded-lg">
+        <div
+          id="image"
+          class="hidden border border-gray-300 relative p-5 mx-5 my-10 rounded-lg"
+        >
           <div class="flex justify-between absolute -top-4 left-4">
             <p class="bg-gray-300 text-center w-[100px] rounded-lg">
               Poster Image
             </p>
           </div>
           <div class="flex justify-between absolute -top-4 -right-4">
-            <button>
+            <button id="image-close">
               <p
                 class="text-red-500 bg-white p-2 text-center font-semibold w-[30px] h-[30px] rounded-full"
               >
@@ -114,22 +122,20 @@
               </div>
             </div>
           </form>
-          <input
-            placeholder="Heading"
-            class="w-full p-5 mt-2 rounded-xl"
-            type="text"
-          />
         </div>
 
         <!-- description part  -->
-        <div class="border border-gray-300 relative p-5 mx-5 my-10 rounded-lg">
+        <div
+          id="description"
+          class="hidden border border-gray-300 relative p-5 mx-5 my-10 rounded-lg"
+        >
           <div class="flex justify-between absolute -top-4 left-4">
             <p class="bg-gray-300 text-center w-[100px] rounded-lg">
               Description
             </p>
           </div>
           <div class="flex justify-between absolute -top-4 -right-4">
-            <button>
+            <button id="description-close">
               <p
                 class="text-red-500 bg-white p-2 text-center font-semibold w-[30px] h-[30px] rounded-full"
               >
@@ -145,22 +151,22 @@
         </div>
 
         <!-- image discription and heading Button  -->
-        <div class="grid grid-cols-1 md:grid-cols-3">
-          <button>
+        <div class="md:flex justify-between">
+          <button id="btn-heading" class="w-full">
             <h3
               class="text-xl text-center text-yellow-900 p-4 bg-yellow-200 shadow-xl rounded-xl mx-2 mt-2"
             >
               Heading
             </h3>
           </button>
-          <button>
+          <button id="btn-image" class="w-full">
             <h3
               class="text-xl text-center text-green-900 p-4 bg-green-200 shadow-xl rounded-xl mx-2 mt-2"
             >
               Image
             </h3>
           </button>
-          <button>
+          <button id="btn-description" class="w-full">
             <h3
               class="text-xl text-center text-blue-900 p-4 bg-blue-200 shadow-xl rounded-xl mx-2 mt-2"
             >
@@ -180,11 +186,18 @@
             <h2 class="ml-5">Preview</h2>
           </div>
         </div>
+        <!-- heading container  -->
+        <div class="my-10">
+          <h1 id="header-container" class="text-6xl font-bold"></h1>
+        </div>
+        <!-- image container  -->
         <div class="h-40 w-full rounded-lg hidden" id="imagePreviewContainer">
           <img src="" alt="Image Preview" id="imagePreview" class="" />
         </div>
       </section>
     </div>
+    <script src="Script/heading.js"></script>
     <script src="Script/imageUpload.js"></script>
+    <script src="Script/description.js"></script>
   </body>
 </html>
