@@ -33,7 +33,7 @@ const typingDelay = 2000;
 inputField.addEventListener("input", () => {
   clearTimeout(typingTimer);
   loader.classList.add("hidden");
-  if (inputField.value) {
+  if (inputField.focus) {
     loader.classList.remove("hidden");
     typingTimer = setTimeout(() => {
       loader.classList.add("hidden");
