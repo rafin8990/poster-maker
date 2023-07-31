@@ -231,11 +231,43 @@
         </div>
       </section>
     </div>
-    <script src="html2canvas.js"></script>
-    <script src="html2canvas.min.js"></script>
+    <script>
+      document
+        .getElementById("btn-download")
+        .addEventListener("click", function () {
+          const pageContent = document.getElementById("download-content");
+
+          const canvas = document.createElement("canvas");
+          canvas.width = pageContent.scrollWidth;
+          canvas.height = pageContent.scrollHeight;
+
+          const context = canvas.getContext("2d");
+
+          const DOMURL = window.URL || window.webkitURL || window;
+          const img = new Image();
+          const svgBlob = new Blob([pageContent.outerHTML], {
+            type: "image/svg+xml;charset=utf-8",
+          });
+          const url = DOMURL.createObjectURL(svgBlob);
+
+          context.drawImage(img, 0, 0);
+
+          const dataURL = canvas.toDataURL("image/jpeg");
+          img.src = url;
+          const downloadLink = document.createElement("a");
+          downloadLink.href = dataURL;
+          downloadLink.download = "poster.jpg";
+
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+        });
+
+      function downloadPageAsImage() {}
+    </script>
+    <script src="Script/download.js"></script>
     <script src="Script/heading.js"></script>
     <script src="Script/imageUpload.js"></script>
     <script src="Script/description.js"></script>
-    <script src="Script/download.js"></script>
   </body>
 </html>
