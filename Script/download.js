@@ -9,10 +9,14 @@ downloadButton.addEventListener("click", () => {
 
   // Draw the contents of the div on the canvas
   //   const imageData = new Image();
+  // Draw the contents of the div on the canvas
+  //   const imageData = new Image();
+  // Draw the contents of the div on the canvas
+  //   const imageData = new Image();
   const img = document.getElementById("img");
   const svgData = new XMLSerializer().serializeToString(pageContent);
   const svgBlob = new Blob([svgData], {
-    type: "data:image/svg+xml;charset=utf-8",
+    type: "image/svg+xml;charset=utf-8",
   });
   const url = URL.createObjectURL(svgBlob);
   img.src = url;
