@@ -8,11 +8,7 @@ downloadButton.addEventListener("click", () => {
   const context = canvas.getContext("2d");
 
   // Draw the contents of the div on the canvas
-  //   const imageData = new Image();
-  // Draw the contents of the div on the canvas
-  //   const imageData = new Image();
-  // Draw the contents of the div on the canvas
-  //   const imageData = new Image();
+
   const img = document.getElementById("img");
   const svgData = new XMLSerializer().serializeToString(pageContent);
   const svgBlob = new Blob([svgData], {
